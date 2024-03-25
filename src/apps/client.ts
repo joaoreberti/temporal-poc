@@ -1,5 +1,5 @@
 import { Connection, Client } from '@temporalio/client';
-import { example } from './workflows';
+import { cancelOrder } from '../workflows';
 import { nanoid } from 'nanoid';
 
 async function run() {
@@ -16,8 +16,8 @@ async function run() {
     // namespace: 'foo.bar', // connects to 'default' namespace if not specified
   });
 
-  const handle = await client.workflow.start(example, {
-    taskQueue: 'hello-world',
+  const handle = await client.workflow.start(cancelOrder, {
+    taskQueue: 'order-cancellation',
     // type inference works! args: [name: string]
     args: ['Temporal'],
     // in practice, use a meaningful business ID, like customerId or transactionId

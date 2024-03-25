@@ -1,5 +1,5 @@
 import { NativeConnection, Worker } from '@temporalio/worker';
-import * as activities from './activities';
+import * as activities from '../activities';
 
 async function run() {
   // Step 1: Establish a connection with Temporal server.
@@ -14,9 +14,9 @@ async function run() {
   const worker = await Worker.create({
     connection,
     namespace: 'default',
-    taskQueue: 'hello-world',
+    taskQueue: 'order-cancellation',
     // Workflows are registered using a path as they run in a separate JS context.
-    workflowsPath: require.resolve('./workflows'),
+    workflowsPath: require.resolve('../workflows'),
     activities,
   });
 
