@@ -7,7 +7,8 @@ The [Hello World Tutorial](https://learn.temporal.io/getting_started/typescript/
 ## Setup temporal locally
 
 1. cd temporal
-2. docker-compose up -d
+1. cp .env.example .env
+1. docker-compose up -d
 
 ### Running this sample
 
